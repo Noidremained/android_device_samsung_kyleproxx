@@ -15,8 +15,6 @@ ARCH_ARM_HAVE_VFP                           := true
 ARCH_ARM_HAVE_TLS_REGISTER                  := true
 ARCH_ARM_HAVE_NEON                          := true
 TARGET_BOOTLOADER_BOARD_NAME                := hawaii
-TARGET_GLOBAL_CFLAGS                        += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp -O3 -funsafe-math-optimizations
-TARGET_GLOBAL_CPPFLAGS                      += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp -O3 -funsafe-math-optimizations
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE                    := kyleprods,kylepro,S7582,S7580,GT-S7582,GT-S7580,hawaii
@@ -34,10 +32,11 @@ else
     TARGET_KERNEL_CONFIG                    := bcm21664_hawaii_ss_kyleprods_rev00_lineage_defconfig
 endif
 TARGET_KERNEL_SOURCE                        := kernel/samsung/kyleproxx
+BOARD_KERNEL_IMAGE_NAME			    := zImage
 
 # Kernel toolchain
-KERNEL_TOOLCHAIN                            := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin
-KERNEL_TOOLCHAIN_PREFIX                     := arm-eabi-
+#KERNEL_TOOLCHAIN                            := prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin
+#KERNEL_TOOLCHAIN_PREFIX                     := arm-eabi-
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS              := device/samsung/kyleproxx/releasetools
@@ -49,7 +48,7 @@ TARGET_KERNEL_HAVE_NTFS                     := true
 # Partition size
 BOARD_BOOTIMAGE_PARTITION_SIZE              := 8388608
 # //Fake Values to workaround build
-BOARD_RECOVERYIMAGE_PARTITION_SIZE          := 10279424
+BOARD_RECOVERYIMAGE_PARTITION_SIZE          := 20279424
 # //
 BOARD_SYSTEMIMAGE_PARTITION_SIZE            := 1200283648
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE              := 0
@@ -116,7 +115,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM             := /sys/class/power_supply/battery/b
 BOARD_CHARGER_ENABLE_SUSPEND                := true
 
 # libhealthd
-BOARD_HAL_STATIC_LIBRARIES                  := libhealthd.hawaii
+#BOARD_HAL_STATIC_LIBRARIES                  := libhealthd.hawaii
 
 # RIL
 BOARD_RIL_CLASS                             := ../../../device/samsung/kyleproxx/ril/
@@ -182,5 +181,5 @@ BOARD_HARDWARE_CLASS                        := hardware/samsung/cmhw/
 TARGET_SPECIFIC_HEADER_PATH                 := device/samsung/kyleproxx/include
 
 # SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/kyleproxx/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#    device/samsung/kyleproxx/sepolicy

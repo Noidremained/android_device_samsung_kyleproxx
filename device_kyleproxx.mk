@@ -31,9 +31,9 @@ PRODUCT_COPY_FILES += \
     device/samsung/kyleproxx/rootdir/check_variant.sh:install/bin/check_variant.sh
 
 # Insecure ADB
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0 \
-    ro.adb.secure=0 \
+#ADDITIONAL_DEFAULT_PROPERTIES += \
+#    ro.secure=0 \
+#    ro.adb.secure=0 \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -167,7 +167,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 include frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk
 
 # Texture config.
-include frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
+#include frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
@@ -176,3 +176,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_kyleproxx
 PRODUCT_DEVICE := kyleproxx
 PRODUCT_MODEL := GT-S758x
+
+#Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service
